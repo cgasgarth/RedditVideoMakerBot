@@ -11,8 +11,6 @@ print_markdown(
     "### Thanks for using this tool! [Feel free to contribute to this project on GitHub!](https://lewismenelaws.com) If you have any questions, feel free to reach out to me on Twitter or submit a GitHub issue."
 )
 
-time.sleep(3)
-
 
 reddit_object = get_subreddit_threads()
 

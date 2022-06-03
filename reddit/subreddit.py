@@ -53,7 +53,6 @@ def get_subreddit_threads():
 
     file_object = open('./reddit/created_log.txt', 'r')
     
-
     for sub in list(threads):
         #search if sub.title is not a line in file_object and if so submission = sub and break, if not continue
         if sub.title in file_object.read():
