@@ -51,7 +51,7 @@ def get_subreddit_threads():
 
     threads = subreddit.top(time_filter="day", limit=5)
 
-    file_object = open('.created_log.txt', 'r')
+    file_object = open('./reddit/created_log.txt', 'r')
     
 
     for sub in list(threads):
@@ -65,8 +65,8 @@ def get_subreddit_threads():
 
     print_substep(f"Thread will be: {submission.title} :thumbsup:")
 
-    file_object = open('.created_log.txt', 'a')
-    file_object.write(f"{submission.title}")
+    file_object = open('./reddit/created_log.txt', 'a')
+    file_object.write(f"{submission.title}" + "\n")
 
 
     try:
