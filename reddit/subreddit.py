@@ -48,9 +48,27 @@ def get_subreddit_threads():
             subreddit = reddit.subreddit("askreddit")
             print_substep("Subreddit not defined. Using AskReddit.")
 
-    threads = subreddit.hot(limit=25)
-    submission = list(threads)[random.randrange(0, 25)]
-    print_substep(f"Video will be: {submission.title} :thumbsup:")
+
+    threads = subreddit.top(time_filter="day", limit=5)
+
+    file_object = open('./assets/created.txt', 'r')
+    
+
+    for sub in list(threads):
+        #search if sub.title is not a line in file_object and if so submission = sub and break, if not continue
+        if sub.title in file_object.read():
+            continue
+        else:
+            submission = sub
+            break
+
+
+    print_substep(f"Thread will be: {submission.title} :thumbsup:")
+
+    file_object = open('./assets/created.txt', 'a')
+    file_object.write(f"{submission.title}")
+
+
     try:
 
         content["thread_url"] = submission.url
